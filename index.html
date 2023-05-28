@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fontello/css/fontello.css">
+    <!--GOOGLE FONTS
+        CSS rules to specify families:
+        font-family: 'Mrs Sheppards', cursive;
+        font-family: 'Alfa Slab One', cursive;-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Mrs+Sheppards&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="logo">
+        <h1 class="logo__title">Sunset Spinner</h1>
+    </header>
+    <main>
+        <section class="game">
+            <span class="game__pointer">&#8674;</span>
+            <div class="game__wheel game__wheel--two-players"></div>
+            <button class="play spin-size">
+                <span class="play__spin">Spin</span>
+            </button>
+        </section>
+        <nav class="navi">
+            <i class="navi__icon navi__icon--scores icon-clipboard"></i>
+            <i class="navi__icon navi__icon--settings icon-cog"></i>
+        </nav>
+    </main>
+    <section class="score hidden">
+        <h2 class="score__info">Scores</h2>
+        <span class="score__player score__player--pink pink"></span>
+        <span class="score__player score__player--white white"></span>
+        <span class="score__player score__player--blue blue"></span>
+        <span class="score__player score__player--orange orange"></span>
+        <button class="score__close">X</button>
+    </section>
+    <section class="settings hidden">
+        <h2 class="settings__info">Settings</h2>
+        <div class="players-num">
+            <h3 class="players-num__name">NUMBER OF PLAYERS</h3>
+            <button class="players-num__set players-num__set--remove icon-user-times"></button>
+            <span class="players-num__number">2</span>
+            <button class="players-num__set players-num__set--add icon-user-plus"></button>
+        </div>
+            <div class="settings__characters">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        <button class="settings__close">X</button>
+    </section>
+    <section class="winner">
+        <span class="winner__is">Mat wins !!!</span>
+    </section>
+    <img src="img/palm.png" alt="" class="palm">
+    <script src="app.js"></script>
+</body>
+</html>

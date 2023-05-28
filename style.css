@@ -1,0 +1,480 @@
+/*-------------------- GLOBAL PROPERTIES --------------------*/
+
+:root
+{
+    --bg-orange: rgb(255, 220, 174);
+    --bg-pink: rgb(193, 138, 208);
+    --vice-blue: rgb(91, 208, 234);
+    --vice-mint: rgb(5,185,117);
+    --vice-pink: rgb(249, 127, 190);
+    --vice-white:  rgb(249, 249, 249);
+    --vice-yellow: rgb(250, 219, 66);
+}
+
+*
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    background: linear-gradient(90deg, var(--bg-orange),var(--bg-pink));
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+}
+
+header
+{
+    color: var(--vice-white);
+    font-family: 'Mrs Sheppards', cursive;
+    font-size: 2.2rem;
+    position: absolute;
+    left: 2%;
+    top: 8%;
+    text-shadow: -2px 0 var(--vice-pink), 0 2px var(--vice-pink),
+    2px 0 var(--vice-pink), 0 -2px var(--vice-pink);
+    transform: rotate(-20deg);
+}
+
+main
+{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/*-------------------- LOGO --------------------*/
+
+.logo__title
+{
+    font-family: 'Mrs Sheppards', cursive;
+}
+
+/*-------------------- WHEEL OF FORTUNE --------------------*/
+
+.game
+{
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    max-height: 70vh;
+    max-width: 70vh;
+    position: relative;
+    width: 500px;
+    z-index: 1;
+}
+
+.game__pointer
+{
+    align-self: flex-start;
+    color: var(--bg-orange);
+    font-size: 7rem;
+    position: absolute;
+    top: -1.6rem;
+    transform: rotate(90deg);
+    z-index: 2;
+}
+
+.game__wheel
+{   
+    border: 8px solid rgb(223, 223, 223);
+    border-radius: 100%;
+    height: 100%;
+    width: 100%;
+    transition: all 5s;
+}
+
+/*-------------------- PROPERTIES DEPENDING ON THE NUMBER OF PLAYERS --------------------*/
+
+.game__wheel--two-players
+{
+    background: repeating-conic-gradient(var(--vice-pink) 0deg 30deg, var(--vice-white) 30deg 60deg);
+}
+
+.game__wheel--three-players
+{
+    background: repeating-conic-gradient(var(--vice-blue) 0deg 30deg, var(--vice-white) 30deg 60deg, var(--vice-pink) 60deg 90deg);
+}
+
+.game__wheel--four-players
+{
+    background: repeating-conic-gradient(var(--vice-blue) 0deg 30deg, var(--vice-white) 30deg 60deg, var(--vice-pink) 60deg 90deg, var(--vice-yellow) 90deg 120deg);
+}
+
+.game__wheel--five-players
+{
+    background: repeating-conic-gradient(var(--vice-blue) 0deg 30deg, var(--vice-white) 30deg 60deg, var(--vice-pink) 60deg 90deg, var(--vice-mint) 90deg 120deg, var(--vice-yellow) 120deg 150deg);
+}
+
+/*-------------------- PLAY / SPIN BUTTON --------------------*/
+
+.play
+{
+    aspect-ratio: 1/1;
+    background: linear-gradient(90deg, var(--vice-pink),var(--vice-yellow));
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+    padding: 12px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 2;
+}
+
+.play__spin
+{
+    color: var(--vice-white);
+    display: inline-block;
+    font-family: 'Mrs Sheppards', cursive;
+    font-size: 3.2rem;
+    text-shadow: -2px 0 var(--vice-pink), 0 2px var(--vice-pink),
+    2px 0 var(--vice-pink), 0 -2px var(--vice-pink);
+    transform: rotate(-30deg);
+}
+
+/*-------------------- NAVI --------------------*/
+
+.navi
+{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-evenly;
+    position: absolute;
+    right: 12px;
+}
+
+.navi__icon
+{
+    color: rgba(255, 255, 255, 0.471);
+    cursor: pointer;
+    font-size: 4.4rem;
+    transition: all 1s;
+}
+
+.navi__icon:hover
+{
+    color: rgb(255, 255, 255);
+}
+
+/*-------------------- SCORE MENU --------------------*/
+
+.score
+{
+    align-items: center;
+    background: rgba(0, 0, 0, 0.303);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-around;
+    position: absolute;
+    width: 100vw;
+    z-index: 3;
+}
+
+.score__info
+{
+    color: var(--vice-white);
+    font-family: 'Mrs Sheppards', cursive;
+    font-size: 2.8rem;
+    text-shadow: -2px 0 var(--vice-pink), 0 2px var(--vice-pink),
+    2px 0 var(--vice-pink), 0 -2px var(--vice-pink);
+}
+
+.score__player
+{
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 1.4rem;
+}
+
+.score__close
+{
+    background: none;
+    border: none;
+    color: var(--vice-pink);
+    cursor: pointer;
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 3.2rem;
+    text-shadow: -2px 0 var(--vice-white), 0 2px var(--vice-white),
+    2px 0 var(--vice-white), 0 -2px var(--vice-white);
+}
+
+/*-------------------- SETTINGS MENU --------------------*/
+
+.settings
+{
+    align-items: center;
+    background: rgba(255, 255, 255, 0.303);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-around;
+    position: absolute;
+    width: 100vw;
+    z-index: 3;
+}
+
+.settings__info
+{
+    color: var(--vice-white);
+    font-family: 'Mrs Sheppards', cursive;
+    font-size: 2.8rem;
+    text-shadow: -2px 0 var(--vice-pink), 0 2px var(--vice-pink),
+    2px 0 var(--vice-pink), 0 -2px var(--vice-pink);
+}
+
+.players-num
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.players-num__name
+{
+    color: var(--vice-blue);
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 1.4rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: -1px 0 var(--vice-pink), 0 1px var(--vice-pink),
+    1px 0 var(--vice-pink), 0 -1px var(--vice-pink);
+    width: 100%;
+}
+
+.players-num__set
+{
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 2.8rem;
+}
+
+.players-num__set--remove
+{
+    color: var(--vice-pink);
+}
+
+.players-num__set--add
+{
+    color: var(--vice-mint);
+}
+
+.players-num__number
+{
+    color: var(--vice-blue);
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 3.2rem;
+    font-weight: bold;
+    margin: 0 40px;
+}
+
+.settings__characters
+{
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    justify-content: flex-start;
+    overflow-y: auto;
+    width: 80vw;
+}
+
+.settings__close
+{
+    background: none;
+    border: none;
+    color: var(--vice-pink);
+    cursor: pointer;
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 3.2rem;
+    text-shadow: -2px 0 var(--vice-white), 0 2px var(--vice-white),
+    2px 0 var(--vice-white), 0 -2px var(--vice-white);
+}
+
+/*-------------------- WINNER --------------------*/
+
+.winner
+{
+    align-items: center;
+    background: rgba(255, 255, 255, 0.303);
+    bottom: -10%;
+    display: flex;
+    height: 10%;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+}
+
+.winner__is
+{
+    color: var(--vice-white);
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 2rem;
+    text-shadow: -1px 0 var(--vice-pink), 0 1px var(--vice-pink),
+    1px 0 var(--vice-pink), 0 -1px var(--vice-pink);
+}
+
+.pink
+{
+    color: var(--vice-pink);
+    text-shadow: -1px 0 var(--vice-white), 0 1px var(--vice-white),
+    1px 0 var(--vice-white), 0 -1px var(--vice-white);
+}
+
+.white
+{
+    color: var(--vice-white);
+    text-shadow: -1px 0 var(--vice-pink), 0 1px var(--vice-pink),
+    1px 0 var(--vice-pink), 0 -1px var(--vice-pink);
+}
+
+.blue
+{
+    color: var(--vice-blue);
+    text-shadow: -1px 0 var(--vice-pink), 0 1px var(--vice-pink),
+    1px 0 var(--vice-pink), 0 -1px var(--vice-pink);
+}
+
+.orange
+{
+    color: var(--vice-yellow);
+    text-shadow: -1px 0 var(--vice-white), 0 1px var(--vice-white),
+    1px 0 var(--vice-white), 0 -1px var(--vice-white);
+}
+
+/*-------------------- DECORATION --------------------*/
+
+.palm
+{
+    bottom: -50%;
+    height: auto;
+    opacity: 0.5;
+    position: absolute;
+    width: 140%;
+    z-index: -1;
+}
+
+/*-------------------- MEDIA QUERRIES --------------------*/
+
+@media (max-width: 900px)
+{
+    header
+    {
+        font-size: 1.4rem;
+    }
+
+    .game__wheel
+    {
+        border: 4px solid rgb(255, 174, 216);
+    }
+
+    .game__pointer
+    {
+        font-size: 4rem;
+        top: -0.7rem;
+    }
+
+    .play
+    {
+        padding: 8px;
+    }
+
+    .play__spin
+    {
+        font-size: 2rem;
+    }
+
+    .navi__icon
+    {
+        font-size: 3rem;
+    }
+    .palm
+    {
+        bottom: -45%;
+        width: 150%;
+    }
+}
+
+@media (orientation: portrait)
+{
+    header
+    {
+        top: 4%;
+    }
+
+    .game
+    {
+        height: auto;
+        max-height: 90vw;
+        max-width: 90vw;
+    }
+
+    .navi
+    {
+        flex-direction: row;
+        height: auto;
+        justify-content: space-evenly;
+        margin-top: 36px;
+        position: relative;
+        right: 0;
+        top: 0;
+        width: 100%;
+    }
+
+    .navi__icon
+    {
+        font-size: 3rem;
+    }
+
+    .palm
+    {
+        bottom: -10%;
+    }
+}
+
+/*-------------------- ANIMATIONS --------------------*/
+
+@keyframes spin-size 
+{
+    0% {scale: 1;}
+    20% {scale: 1.2;}
+    40% {scale: 1;}
+    100% {scale: 1;}
+}
+
+.spin-size
+{
+    animation: spin-size 6s linear 1s infinite;
+}
+
+@keyframes show-winner 
+{
+    0% {bottom: -10%;}
+    100% {bottom: 0;}
+}
+
+.show-winner
+{
+    animation: show-winner 2s linear;
+    animation-fill-mode: forwards;
+}
+
+/*-------------------- HIDDEN --------------------*/
+
+.hidden
+{
+    display: none;
+}
