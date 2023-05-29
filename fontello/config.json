@@ -8,27 +8,51 @@
   "glyphs": [
     {
       "uid": "fc94b92194752796654c96c7b7dccebb",
-      "css": "cog",
+      "css": "settings",
       "code": 59393,
       "src": "iconic"
     },
     {
       "uid": "1a27e6346cdf0480c9c22351378bebbb",
-      "css": "clipboard",
+      "css": "scores",
       "code": 59394,
       "src": "typicons"
     },
     {
       "uid": "1bafeeb1808a5fe24484c7890096901a",
-      "css": "user-plus",
+      "css": "add-user",
       "code": 62004,
       "src": "fontawesome"
     },
     {
       "uid": "fb1c59faa93eb6e2248c2456625b08a2",
-      "css": "user-times",
+      "css": "remove-user",
       "code": 62005,
       "src": "fontawesome"
+    },
+    {
+      "uid": "20370af73ca90f73b4bda366d92303d9",
+      "css": "pointer",
+      "code": 59392,
+      "src": "elusive"
+    },
+    {
+      "uid": "081a030199f3ab4e18fd3ebdac1bd367",
+      "css": "reset",
+      "code": 59395,
+      "src": "elusive"
+    },
+    {
+      "uid": "62b0580ee8edc3a3edfbf68a47c852d5",
+      "css": "rename",
+      "code": 59396,
+      "src": "elusive"
+    },
+    {
+      "uid": "8da3ac534210aae9c0f0e13804c1df97",
+      "css": "close",
+      "code": 59397,
+      "src": "websymbols"
     }
   ]
 }

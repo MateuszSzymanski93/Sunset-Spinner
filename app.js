@@ -1,3 +1,7 @@
+const CHARACTER_PINK = document.querySelector(".characters__player--pink");
+const CHARACTER_WHITE = document.querySelector(".characters__player--white");
+const CHARACTER_BLUE = document.querySelector(".characters__player--blue");
+const CHARACTER_ORANGE = document.querySelector(".characters__player--orange");
 const PLAY = document.querySelector(".play");
 const PLAYER_ADD = document.querySelector(".players-num__set--add");
 const PLAYER_REMOVE = document.querySelector(".players-num__set--remove");
@@ -21,34 +25,40 @@ let players = 2
 let winner 
 
 let rot = 360;
-let pink = "pink";
+let pink = "Pink";
 let pinkScore = 0;
-let white = "white";
+let white = "White";
 let whiteScore = 0;
-let blue = "blue";
+let blue = "Blue";
 let blueScore = 0;
-let orange = "orange";
+let orange = "Orange";
 let orangeScore = 0;
 
 function updateScore()
 {
-    PLAYER_PINK.innerHTML = "PINK : " + pinkScore
-    PLAYER_WHITE.innerHTML = "WHITE : " + whiteScore
-    PLAYER_BLUE.innerHTML = "BLUE : " + blueScore
-    PLAYER_ORANGE.innerHTML = "ORANGE : " + orangeScore
+    PLAYER_PINK.innerHTML = pink + " : " + pinkScore
+    PLAYER_WHITE.innerHTML = white + " : " + whiteScore
+    PLAYER_BLUE.innerHTML = blue + " : " + blueScore
+    PLAYER_ORANGE.innerHTML = orange + " : " + orangeScore
     if(players == 2)
     {
+        CHARACTER_BLUE.classList.add("hidden")
         PLAYER_BLUE.classList.add("hidden")
+        CHARACTER_ORANGE.classList.add("hidden")
         PLAYER_ORANGE.classList.add("hidden")
     }
     if(players == 3)
     {
+        CHARACTER_BLUE.classList.remove("hidden")
         PLAYER_BLUE.classList.remove("hidden")
+        CHARACTER_ORANGE.classList.add("hidden")
         PLAYER_ORANGE.classList.add("hidden")
     }
     if(players == 4)
     {
+        CHARACTER_BLUE.classList.remove("hidden")
         PLAYER_BLUE.classList.remove("hidden")
+        CHARACTER_ORANGE.classList.remove("hidden")
         PLAYER_ORANGE.classList.remove("hidden")
     }
 }
@@ -77,7 +87,8 @@ function showWinner(winner)
 
 function hideWinner()
 {
-    setTimeout(() => {
+    setTimeout(() => 
+    {
        WINNER_IS.classList.remove("pink")
        WINNER_IS.classList.remove("white")
        WINNER_IS.classList.remove("blue")  
@@ -109,13 +120,23 @@ function loadWheel(players)
     }
 };
 
-PLAY.addEventListener("click", function()
+function disableButtons ()
 {
     PLAY.disabled = true;
-    SCORE_OPEN.disabled = true;
     PLAYER_ADD.disabled = true;
     PLAYER_REMOVE.disabled = true;
+    setTimeout(() => 
+    {
+        PLAY.disabled = false;
+        PLAYER_ADD.disabled = false;
+        PLAYER_REMOVE.disabled = false;
+    }, 6000);
+};
+
+PLAY.addEventListener("click", function()
+{
     PLAY.classList.remove("spin-size")
+    WINNER.classList.remove("show-winner")
     let num = (Math.random() * 1440);
     rot += num; 
     WHEEL.setAttribute("style", "rotate:" + (rot + 360) + "deg")
@@ -127,13 +148,19 @@ PLAY.addEventListener("click", function()
     {
         if(result % 2 == 0)
         {
-            pinkScore += 1
+            setTimeout (()=>
+            {
+                pinkScore += 1
+            },6000);
             console.log("pink wins!!!")
             winner = pink
         }
         else  
         {
-            whiteScore += 1
+            setTimeout (()=>
+            {
+                whiteScore += 1
+            },6000);
             console.log("white wins!!!")
             winner = white
         }
@@ -142,19 +169,28 @@ PLAY.addEventListener("click", function()
     {
         if(result == 1 || result == 4  || result == 7 || result == 10)  
         {
-            pinkScore += 1
+            setTimeout (()=>
+            {
+                pinkScore += 1
+            },6000);
             console.log("pink wins!!!")
             winner = pink
         }
         if(result == 2 || result == 5  || result == 8 || result == 11)  
         {
-            whiteScore += 1
+            setTimeout (()=>
+            {
+                whiteScore += 1
+            },6000);
             console.log("white wins!!!")
             winner = white
         }
         if(result == 3 || result == 6  || result == 9 || result == 12)  
         {
-            blueScore += 1
+            setTimeout (()=>
+            {
+                blueScore += 1
+            },6000);
             console.log("blue wins!!!")
             winner = blue
         }
@@ -163,38 +199,48 @@ PLAY.addEventListener("click", function()
     {
         if(result == 1 || result == 5  || result == 9)
         {
-            orangeScore += 1
+            setTimeout (()=>
+            {
+                orangeScore += 1
+            },6000);
             console.log("orange wins!!!")
             winner = orange
         }
         if(result == 2 || result == 6  || result == 10)
         {
-            pinkScore += 1
+            setTimeout (()=>
+            {
+                pinkScore += 1
+            },6000);
             console.log("pink wins!!!")
             winner = pink
         }
         if(result == 3 || result == 7  || result == 11)
         {
-            whiteScore += 1
+            setTimeout (()=>
+            {
+                whiteScore += 1
+            },6000);
             console.log("white wins!!!")
             winner = white
         }
         if(result == 4 || result == 8  || result == 12)  
         {
-            blueScore += 1
+            setTimeout (()=>
+            {
+                blueScore += 1
+            },6000);
             console.log("blue wins!!!")
             winner = blue
         }
     }
     hideWinner()
-    WINNER.classList.remove("show-winner")
-    setTimeout(() => {
+    disableButtons()
+    setTimeout(() => 
+    {
         showWinner(winner)
-        PLAY.disabled = false;
-        SCORE_OPEN.disabled = false;
-        PLAYER_ADD.disabled = false;
-        PLAYER_REMOVE.disabled = false;
-        PLAY.classList.add("spin-size") 
+        updateScore()
+        PLAY.classList.add("spin-size")
     }, 6000);   
     return rot;
 });
@@ -208,12 +254,12 @@ SCORE_OPEN.addEventListener("click", function()
 SCORE_CLOSE.addEventListener("click", function()
 {
     SCORE.classList.add("hidden")
-    loadWheel(players)
 });
 
 SETTINGS_OPEN.addEventListener("click", function()
 {
     SETTINGS.classList.remove("hidden")
+    updateScore()
 });
 
 SETTINGS_CLOSE.addEventListener("click", function()
@@ -233,6 +279,7 @@ PLAYER_ADD.addEventListener("click", function()
         players = 4
     }
     PLAYERS_NUMBER.innerHTML = players
+    updateScore()
     return players
 });
 
@@ -247,5 +294,6 @@ PLAYER_REMOVE.addEventListener("click", function()
         players = 2
     }
     PLAYERS_NUMBER.innerHTML = players
+    updateScore()
     return players
 });
