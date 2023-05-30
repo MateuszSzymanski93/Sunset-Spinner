@@ -1,22 +1,11 @@
-const CHARACTER_PINK = document.querySelector(".characters__player--pink");
-const CHARACTER_WHITE = document.querySelector(".characters__player--white");
 const CHARACTER_BLUE = document.querySelector(".characters__player--blue");
 const CHARACTER_ORANGE = document.querySelector(".characters__player--orange");
 const PLAY = document.querySelector(".play");
-const PLAYER_ADD = document.querySelector(".players-num__set--add");
-const PLAYER_REMOVE = document.querySelector(".players-num__set--remove");
-const PLAYERS_NUMBER = document.querySelector(".players-num__number");
 const PLAYER_PINK = document.querySelector(".score__player--pink");
 const PLAYER_WHITE = document.querySelector(".score__player--white");
 const PLAYER_BLUE = document.querySelector(".score__player--blue");
 const PLAYER_ORANGE = document.querySelector(".score__player--orange");
 const POINTER = document.querySelector(".game__pointer");
-const SCORE = document.querySelector(".score");
-const SCORE_CLOSE = document.querySelector(".score__close");
-const SCORE_OPEN = document.querySelector(".navi__icon--scores");
-const SETTINGS = document.querySelector(".settings");
-const SETTINGS_CLOSE = document.querySelector(".settings__close"); 
-const SETTINGS_OPEN = document.querySelector(".navi__icon--settings");
 const WHEEL = document.querySelector(".game__wheel");
 const WINNER = document.querySelector(".winner");
 const WINNER_IS = document.querySelector(".winner__is")
@@ -245,6 +234,10 @@ PLAY.addEventListener("click", function()
     return rot;
 });
 
+const SCORE = document.querySelector(".score");
+const SCORE_CLOSE = document.querySelector(".score__close");
+const SCORE_OPEN = document.querySelector(".navi__icon--scores");
+
 SCORE_OPEN.addEventListener("click", function()
 {
     SCORE.classList.remove("hidden")
@@ -255,6 +248,10 @@ SCORE_CLOSE.addEventListener("click", function()
 {
     SCORE.classList.add("hidden")
 });
+
+const SETTINGS = document.querySelector(".settings");
+const SETTINGS_CLOSE = document.querySelector(".settings__close"); 
+const SETTINGS_OPEN = document.querySelector(".navi__icon--settings");
 
 SETTINGS_OPEN.addEventListener("click", function()
 {
@@ -267,6 +264,10 @@ SETTINGS_CLOSE.addEventListener("click", function()
     SETTINGS.classList.add("hidden")
     loadWheel(players)
 });
+
+const PLAYER_ADD = document.querySelector(".players-num__set--add");
+const PLAYER_REMOVE = document.querySelector(".players-num__set--remove");
+const PLAYERS_NUMBER = document.querySelector(".players-num__number");
 
 PLAYER_ADD.addEventListener("click", function()
 {
@@ -296,4 +297,105 @@ PLAYER_REMOVE.addEventListener("click", function()
     PLAYERS_NUMBER.innerHTML = players
     updateScore()
     return players
+});
+
+const RENAME_PLAYERS = document.querySelector(".settings__rename-player");
+const RENAME_CLOSE = document.querySelector(".rename__close");
+const RENAME_SETTINGS = document.querySelector(".rename");
+const RENAME_INPUT = document.querySelectorAll(".player__new");
+const RENAME_PINK = document.querySelector(".player__new--pink");
+const RENAME_PINK_CONFIRM = document.querySelector(".player__confirm--pink");
+const RENAME_WHITE = document.querySelector(".player__new--white");
+const RENAME_WHITE_CONFIRM = document.querySelector(".player__confirm--white");
+const RENAME_BLUE = document.querySelector(".player__new--blue");
+const RENAME_BLUE_CONFIRM = document.querySelector(".player__confirm--blue");
+const RENAME_ORANGE = document.querySelector(".player__new--orange");
+const RENAME_ORANGE_CONFIRM = document.querySelector(".player__confirm--orange");
+
+function renamePlayer(color)
+{
+    if(color === "pink")
+    {
+        pink = RENAME_PINK.value
+        return pink
+    }
+    if(color === "white")
+    {
+        white = RENAME_WHITE.value
+        return white
+    }
+    if(color === "blue")
+    {
+        blue = RENAME_BLUE.value
+        return blue
+    }
+    if(color === "orange")
+    {
+        orange = RENAME_ORANGE.value
+        return orange
+    }
+};
+
+RENAME_PLAYERS.addEventListener("click", function()
+{
+    RENAME_SETTINGS.classList.remove("hidden")
+    SETTINGS.classList.add("hidden")
+});
+
+RENAME_PINK_CONFIRM.addEventListener("click", function()
+{
+    renamePlayer("pink")
+    RENAME_PINK_CONFIRM.innerHTML = ""
+    RENAME_PINK_CONFIRM.classList.add("icon-ok", "mint")
+});
+
+RENAME_PINK.addEventListener("click", function()
+{
+    RENAME_PINK_CONFIRM.innerHTML = "Save"
+    RENAME_PINK_CONFIRM.classList.remove("icon-ok", "mint")
+});
+
+RENAME_WHITE_CONFIRM.addEventListener("click", function()
+{
+    renamePlayer("white")
+    RENAME_WHITE_CONFIRM.innerHTML = ""
+    RENAME_WHITE_CONFIRM.classList.add("icon-ok", "mint")
+});
+
+RENAME_WHITE.addEventListener("click", function()
+{
+    RENAME_WHITE_CONFIRM.innerHTML = "Save"
+    RENAME_WHITE_CONFIRM.classList.remove("icon-ok", "mint")
+});
+
+RENAME_BLUE_CONFIRM.addEventListener("click", function()
+{
+    RENAME_BLUE_CONFIRM.innerHTML = ""
+    RENAME_BLUE_CONFIRM.classList.add("icon-ok", "mint")
+    renamePlayer("blue")
+});
+
+RENAME_BLUE.addEventListener("click", function()
+{
+    RENAME_BLUE_CONFIRM.innerHTML = "Save"
+    RENAME_BLUE_CONFIRM.classList.remove("icon-ok", "mint")
+});
+
+RENAME_ORANGE_CONFIRM.addEventListener("click", function()
+{
+    RENAME_ORANGE_CONFIRM.innerHTML = ""
+    RENAME_ORANGE_CONFIRM.classList.add("icon-ok", "mint")
+    renamePlayer("orange")
+});
+
+RENAME_ORANGE.addEventListener("click", function()
+{
+    RENAME_ORANGE_CONFIRM.innerHTML = "Save"
+    RENAME_ORANGE_CONFIRM.classList.remove("icon-ok", "mint")
+});
+
+RENAME_CLOSE.addEventListener("click", function()
+{
+    RENAME_SETTINGS.classList.add("hidden")
+    SETTINGS.classList.remove("hidden")
 });

@@ -43,15 +43,15 @@
       "src": "elusive"
     },
     {
-      "uid": "62b0580ee8edc3a3edfbf68a47c852d5",
-      "css": "rename",
-      "code": 59396,
-      "src": "elusive"
-    },
-    {
       "uid": "8da3ac534210aae9c0f0e13804c1df97",
       "css": "close",
       "code": 59397,
+      "src": "websymbols"
+    },
+    {
+      "uid": "7b16b22168e762c88333f465da862098",
+      "css": "ok",
+      "code": 59398,
       "src": "websymbols"
     }
   ]

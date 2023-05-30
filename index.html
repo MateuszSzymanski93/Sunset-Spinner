@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sunset Spinner</title>
+    <meta name="description" content="Free online application for drawing players. Randomly select one of partners for games in few seconds. Perfect solution for tournaments, and sports teams.">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fontello/css/fontello.css">
     <!--GOOGLE FONTS
@@ -28,8 +29,8 @@
             </button>
         </section>
         <nav class="navi">
-            <i class="navi__icon navi__icon--scores icon-scores"></i>
-            <i class="navi__icon navi__icon--settings icon-settings"></i>
+            <button class="navi__icon navi__icon--scores icon-scores"></button>
+            <button class="navi__icon navi__icon--settings icon-settings"></button>
         </nav>
     </main>
     <section class="score hidden">
@@ -48,25 +49,34 @@
             <span class="players-num__number">2</span>
             <button class="players-num__set players-num__set--add icon-add-user"></button>
         </div>
-            <div class="settings__characters">
-                <div class="characters__player characters__player--pink">
-                    <span class="player__name player__name--pink">Pink</span>
-                    <span class="player__rename player__rename--pink icon-rename"></span>
-                </div>
-                <div class="characters__player characters__player--white">
-                    <span class="player__name player__name--white">White</span>
-                    <span class="player__rename player__rename--white icon-rename"></span>
-                </div>
-                <div class="characters__player characters__player--blue">
-                    <span class="player__name player__name--blue">Blue</span>
-                    <span class="player__rename player__rename--blue icon-rename"></span>
-                </div>
-                <div class="characters__player characters__player--orange">
-                    <span class="player__name player__name--orange">Orange</span>
-                    <span class="player__rename player__rename--orange icon-rename"></span>
-                </div>
-            </div>
+        <button class="settings__rename-player">Rename Players</button>
         <button class="settings__close icon-close"></button>
+    </section>
+    <section class="rename hidden">
+        <h2 class="rename__info">Rename Players</h2>
+        <div class="rename__characters">
+            <div class="characters__player characters__player--pink">
+                <span class="player__previous player__previous--pink">Pink</span>
+                <input type="text" class="player__new player__new--pink"/>
+                <button class="player__confirm player__confirm--pink pink">Save</button>
+            </div>
+            <div class="characters__player characters__player--white">
+                <span class="player__previous player__previous--white white">White</span>
+                <input type="text" class="player__new player__new--white"/>
+                <button class="player__confirm player__confirm--white white">Save</button>
+            </div>
+            <div class="characters__player characters__player--blue">
+                <span class="player__previous player__previous--blue blue">Blue</span>
+                <input type="text" class="player__new player__new--blue"/>
+                <button class="player__confirm player__confirm--blue blue">Save</button>
+            </div>
+            <div class="characters__player characters__player--orange">
+                <span class="player__previous player__previous--orange">Orange</span>
+                <input type="text" class="player__new player__new--orange"/>
+                <button class="player__confirm player__confirm--orange orange">Save</button>
+            </div>
+        </div>
+        <button class="rename__close icon-close"></button>
     </section>
     <section class="winner">
         <span class="winner__is">Mat wins !!!</span>
