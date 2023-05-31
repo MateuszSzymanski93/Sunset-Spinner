@@ -26,11 +26,9 @@
 
 html
 {
-    height: 100vh;
-    max-height: 100vh;
-    max-width: 100vw;
+    height: 100%;
     overflow: hidden;
-    width: 100vw;
+    width: 100%;
 }
 
 body
@@ -78,8 +76,8 @@ button
     aspect-ratio: 1/1;
     display: flex;
     justify-content: center;
-    max-height: 75%;
-    max-width: 75%;
+    max-height: 75vh;
+    max-width: 75vh;
     position: relative;
     width: 500px;
     z-index: 1;
@@ -572,8 +570,8 @@ button
     .game
     {
         height: auto;
-        max-height: 100%;
-        max-width: 70%;
+        max-height: 90vw;
+        max-width: 90vw;
     }
 
     .game__wheel
