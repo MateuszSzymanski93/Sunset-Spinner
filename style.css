@@ -222,7 +222,7 @@ button
     font-family: var(--font-printed);
     font-size: 1.2rem;  
     margin-bottom: 12px;
-    padding: 5px 0;
+    padding: 12px 0;
     width: 45%;
 }
 
@@ -270,14 +270,11 @@ button
 
 .players-num__name
 {
-    color: var(--vice-blue);
     font-family: var(--font-printed);
     font-size: 1.4rem;
     letter-spacing: 1.5px;
     margin-bottom: 20px;
     text-align: center;
-    text-shadow: -1px 0 var(--vice-pink), 0 1px var(--vice-pink),
-    1px 0 var(--vice-pink), 0 -1px var(--vice-pink);
     width: 100%;
 }
 
@@ -374,34 +371,6 @@ button
     font-size: 1.6rem;
 }
 
-.characters__player--pink
-{
-    color: var(--vice-pink);
-    text-shadow: -1px 0 var(--vice-white), 0 1px var(--vice-white),
-    1px 0 var(--vice-white), 0 -1px var(--vice-white);
-}
-
-.characters__player--white
-{
-    color: var(--vice-white);
-    text-shadow: -1px 0 var(--vice-pink), 0 1px var(--vice-pink),
-    1px 0 var(--vice-pink), 0 -1px var(--vice-pink);
-}
-
-.characters__player--blue
-{
-    color: var(--vice-blue);
-    text-shadow: -1px 0 var(--vice-pink), 0 1px var(--vice-pink),
-    1px 0 var(--vice-pink), 0 -1px var(--vice-pink);
-}
-
-.characters__player--orange
-{
-    color: var(--vice-orange);
-    text-shadow: -1px 0 var(--vice-white), 0 1px var(--vice-white),
-    1px 0 var(--vice-white), 0 -1px var(--vice-white);
-}
-
 .player__previous
 {
     left: 12%;
@@ -489,11 +458,20 @@ button
 
 .winner__is
 {
-    color: var(--vice-white);
     font-family: var(--font-printed);
     font-size: 2rem;
-    text-shadow: -1px 0 var(--vice-pink), 0 1px var(--vice-pink),
-    1px 0 var(--vice-pink), 0 -1px var(--vice-pink);
+}
+
+/*-------------------- DECORATION --------------------*/
+
+.palm
+{
+    bottom: -50%;
+    height: auto;
+    opacity: 0.5;
+    position: absolute;
+    width: 140%;
+    z-index: -1;
 }
 
 /*-------------------- COLORS --------------------*/
@@ -531,18 +509,6 @@ button
     color: var(--vice-mint);
     text-shadow: -1px 0 var(--vice-white), 0 1px var(--vice-white),
     1px 0 var(--vice-white), 0 -1px var(--vice-white);
-}
-
-/*-------------------- DECORATION --------------------*/
-
-.palm
-{
-    bottom: -50%;
-    height: auto;
-    opacity: 0.5;
-    position: absolute;
-    width: 140%;
-    z-index: -1;
 }
 
 /*-------------------- MEDIA QUERRIES --------------------*/
@@ -606,6 +572,11 @@ button
         height: auto;
         max-height: 90vw;
         max-width: 90vw;
+    }
+
+    .game__wheel
+    {
+        border: 4px solid rgb(255, 174, 216);
     }
 
     .game__pointer
