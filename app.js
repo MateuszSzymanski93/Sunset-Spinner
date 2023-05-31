@@ -127,7 +127,7 @@ PLAY.addEventListener("click", function()
     PLAY.classList.remove("spin-size")
     WINNER.classList.remove("show-winner")
     let num = (Math.random() * 1440);
-    rot += num; 
+    rot += num + 360; 
     WHEEL.setAttribute("style", "rotate:" + (rot + 360) + "deg")
     let rotations = Math.floor(rot / 360) 
     let oneMove = (rotations * 360) 
@@ -230,7 +230,7 @@ PLAY.addEventListener("click", function()
         showWinner(winner)
         updateScore()
         PLAY.classList.add("spin-size")
-    }, 6000);   
+    }, 5000);   
     return rot;
 });
 

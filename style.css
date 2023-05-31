@@ -679,7 +679,7 @@ button
 
 .show-winner
 {
-    animation: show-winner 2s linear;
+    animation: show-winner 1.5s linear;
     animation-fill-mode: forwards;
 }
 
