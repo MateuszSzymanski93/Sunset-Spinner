@@ -76,8 +76,8 @@ button
     aspect-ratio: 1/1;
     display: flex;
     justify-content: center;
-    max-height: 75vh;
-    max-width: 75vh;
+    max-height: 75%;
+    max-width: 75%;
     position: relative;
     width: 500px;
     z-index: 1;
@@ -570,8 +570,8 @@ button
     .game
     {
         height: auto;
-        max-height: 90vw;
-        max-width: 90vw;
+        max-height: 100%;
+        max-width: 70%;
     }
 
     .game__wheel
