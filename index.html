@@ -39,7 +39,10 @@
         <span class="score__player score__player--white white"></span>
         <span class="score__player score__player--blue blue"></span>
         <span class="score__player score__player--orange orange"></span>
-        <button class="score__close icon-close"></button>
+        <div class="score__nav">
+            <button class="nav__scores nav__scores--restore white">Reset</button>
+            <button class="nav__scores nav__scores--close white">Quit</button>
+        </div>
     </section>
     <section class="settings hidden">
         <h2 class="settings__info">Settings</h2>
@@ -49,34 +52,33 @@
             <span class="players-num__number">2</span>
             <button class="players-num__set players-num__set--add icon-add-user"></button>
         </div>
-        <button class="settings__rename-player">Rename Players</button>
-        <button class="settings__close icon-close"></button>
+        <button class="settings__rename-player white">Rename Players</button>
+        <button class="settings__close white">Back</button>
     </section>
     <section class="rename hidden">
         <h2 class="rename__info">Rename Players</h2>
         <div class="rename__characters">
             <div class="characters__player characters__player--pink">
                 <span class="player__previous player__previous--pink">Pink</span>
-                <input type="text" class="player__new player__new--pink"/>
-                <button class="player__confirm player__confirm--pink pink">Save</button>
+                <input type="text" maxlength="10" class="player__new player__new--pink pink"/>
             </div>
             <div class="characters__player characters__player--white">
                 <span class="player__previous player__previous--white white">White</span>
-                <input type="text" class="player__new player__new--white"/>
-                <button class="player__confirm player__confirm--white white">Save</button>
+                <input type="text" maxlength="10" class="player__new player__new--white white"/>
             </div>
             <div class="characters__player characters__player--blue">
                 <span class="player__previous player__previous--blue blue">Blue</span>
-                <input type="text" class="player__new player__new--blue"/>
-                <button class="player__confirm player__confirm--blue blue">Save</button>
+                <input type="text" maxlength="10" class="player__new player__new--blue blue"/>
             </div>
             <div class="characters__player characters__player--orange">
                 <span class="player__previous player__previous--orange">Orange</span>
-                <input type="text" class="player__new player__new--orange"/>
-                <button class="player__confirm player__confirm--orange orange">Save</button>
+                <input type="text" maxlength="10" class="player__new player__new--orange orange"/>
             </div>
         </div>
-        <button class="rename__close icon-close"></button>
+        <div class="rename__nav">
+            <button class="nav__rename nav__rename--restore white">Restore Default</button>
+            <button class="nav__rename nav__rename--close white">Save & Quit</button>
+        </div>
     </section>
     <section class="winner">
         <span class="winner__is">Mat wins !!!</span>

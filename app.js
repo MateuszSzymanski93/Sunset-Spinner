@@ -235,12 +235,46 @@ PLAY.addEventListener("click", function()
 });
 
 const SCORE = document.querySelector(".score");
-const SCORE_CLOSE = document.querySelector(".score__close");
+const SCORE_CLOSE = document.querySelector(".nav__scores--close");
 const SCORE_OPEN = document.querySelector(".navi__icon--scores");
+const SCORE_RESET = document.querySelector(".nav__scores--restore");
+
+function resetPink()
+{
+    pinkScore = 0
+    return pinkScore
+}
+
+function resetWhite()
+{
+    whiteScore = 0
+    return whiteScore
+}
+
+function resetBlue()
+{
+    blueScore = 0
+    return blueScore
+}
+
+function resetOrange()
+{
+    orangeScore = 0
+    return orangeScore
+}
 
 SCORE_OPEN.addEventListener("click", function()
 {
     SCORE.classList.remove("hidden")
+    updateScore()
+});
+
+SCORE_RESET.addEventListener("click", function()
+{
+    resetPink()
+    resetWhite()
+    resetBlue()
+    resetOrange()
     updateScore()
 });
 
@@ -299,42 +333,66 @@ PLAYER_REMOVE.addEventListener("click", function()
     return players
 });
 
-const RENAME_PLAYERS = document.querySelector(".settings__rename-player");
-const RENAME_CLOSE = document.querySelector(".rename__close");
 const RENAME_SETTINGS = document.querySelector(".rename");
-const RENAME_INPUT = document.querySelectorAll(".player__new");
+const RENAME_PLAYERS = document.querySelector(".settings__rename-player");
+const RENAME_RESTORE = document.querySelector(".nav__rename--restore");
+const RENAME_CLOSE = document.querySelector(".nav__rename--close");
 const RENAME_PINK = document.querySelector(".player__new--pink");
-const RENAME_PINK_CONFIRM = document.querySelector(".player__confirm--pink");
 const RENAME_WHITE = document.querySelector(".player__new--white");
-const RENAME_WHITE_CONFIRM = document.querySelector(".player__confirm--white");
 const RENAME_BLUE = document.querySelector(".player__new--blue");
-const RENAME_BLUE_CONFIRM = document.querySelector(".player__confirm--blue");
 const RENAME_ORANGE = document.querySelector(".player__new--orange");
-const RENAME_ORANGE_CONFIRM = document.querySelector(".player__confirm--orange");
 
-function renamePlayer(color)
+function renamePink(restore)
 {
-    if(color === "pink")
+    if(RENAME_PINK.value.length > 0)
     {
         pink = RENAME_PINK.value
-        return pink
     }
-    if(color === "white")
+    if(RENAME_PINK.value.length < 1 || restore === true)
+    (
+        pink = "Pink"
+    )
+    return pink
+}
+
+function renameWhite(restore)
+{
+    if(RENAME_WHITE.value.length > 0)
     {
         white = RENAME_WHITE.value
-        return white
     }
-    if(color === "blue")
+    if(RENAME_WHITE.value.length < 1 || restore === true)
+    (
+        white = "White"
+    )
+    return white
+}
+
+function renameBlue(restore)
+{
+    if(RENAME_BLUE.value.length > 0)
     {
         blue = RENAME_BLUE.value
-        return blue
     }
-    if(color === "orange")
+    if(RENAME_BLUE.value.length < 1)
+    (
+        blue = "Blue"
+    )
+    return blue
+}
+
+function renameOrange(restore)
+{
+    if(RENAME_ORANGE.value.length > 0) 
     {
         orange = RENAME_ORANGE.value
-        return orange
     }
-};
+    if(RENAME_ORANGE.value.length < 1)
+    (
+        orange = "Orange"
+    )
+    return orange
+}
 
 RENAME_PLAYERS.addEventListener("click", function()
 {
@@ -342,60 +400,20 @@ RENAME_PLAYERS.addEventListener("click", function()
     SETTINGS.classList.add("hidden")
 });
 
-RENAME_PINK_CONFIRM.addEventListener("click", function()
+RENAME_RESTORE.addEventListener("click", function()
 {
-    renamePlayer("pink")
-    RENAME_PINK_CONFIRM.innerHTML = ""
-    RENAME_PINK_CONFIRM.classList.add("icon-ok", "mint")
-});
-
-RENAME_PINK.addEventListener("click", function()
-{
-    RENAME_PINK_CONFIRM.innerHTML = "Save"
-    RENAME_PINK_CONFIRM.classList.remove("icon-ok", "mint")
-});
-
-RENAME_WHITE_CONFIRM.addEventListener("click", function()
-{
-    renamePlayer("white")
-    RENAME_WHITE_CONFIRM.innerHTML = ""
-    RENAME_WHITE_CONFIRM.classList.add("icon-ok", "mint")
-});
-
-RENAME_WHITE.addEventListener("click", function()
-{
-    RENAME_WHITE_CONFIRM.innerHTML = "Save"
-    RENAME_WHITE_CONFIRM.classList.remove("icon-ok", "mint")
-});
-
-RENAME_BLUE_CONFIRM.addEventListener("click", function()
-{
-    RENAME_BLUE_CONFIRM.innerHTML = ""
-    RENAME_BLUE_CONFIRM.classList.add("icon-ok", "mint")
-    renamePlayer("blue")
-});
-
-RENAME_BLUE.addEventListener("click", function()
-{
-    RENAME_BLUE_CONFIRM.innerHTML = "Save"
-    RENAME_BLUE_CONFIRM.classList.remove("icon-ok", "mint")
-});
-
-RENAME_ORANGE_CONFIRM.addEventListener("click", function()
-{
-    RENAME_ORANGE_CONFIRM.innerHTML = ""
-    RENAME_ORANGE_CONFIRM.classList.add("icon-ok", "mint")
-    renamePlayer("orange")
-});
-
-RENAME_ORANGE.addEventListener("click", function()
-{
-    RENAME_ORANGE_CONFIRM.innerHTML = "Save"
-    RENAME_ORANGE_CONFIRM.classList.remove("icon-ok", "mint")
+    RENAME_PINK.value = ""
+    RENAME_WHITE.value = ""
+    RENAME_BLUE.value = ""
+    RENAME_ORANGE.value = ""
 });
 
 RENAME_CLOSE.addEventListener("click", function()
 {
     RENAME_SETTINGS.classList.add("hidden")
     SETTINGS.classList.remove("hidden")
+    renamePink()
+    renameWhite()
+    renameBlue()
+    renameOrange()
 });
