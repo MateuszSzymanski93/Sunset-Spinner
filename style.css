@@ -183,8 +183,8 @@ button
 {
     align-items: center;
     background: var(--menu-black);
-    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -243,8 +243,8 @@ button
 {
     align-items: center;
     background: var(--menu-white);
-    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -339,8 +339,8 @@ button
 {
     align-items: center;
     background: var(--menu-white);
-    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
     height: 100%;
